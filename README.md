@@ -7,16 +7,16 @@ Let’s recall DSA signature.
 - Key generationKeyGen generates secret keyx
 
 ```
-$
 ←Z∗q, and public keyy ← gxmodp, and
 outputs (x, y).
 ```
 - SigningSign(m):
     - generate a random noncek 
-      - ### ( k ← Z_q^*. ) ###
-    - ### ( r ← g^k mod p ### )
-    - ### ( s ← (k^-1 (H(m) +xr)) mod q. ) ###
-    - output pair (r, s).
+
+''' k ← Z_q^*. '''
+''' r ← g^k mod p '''
+''' s ← (k^-1 (H(m) +xr)) mod q. '''
+''' output pair (r, s) '''
 
 What is the vulnerability?
 It is possible that the range over which the random noncekis selected is very small. If an
