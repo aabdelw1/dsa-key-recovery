@@ -4,14 +4,14 @@ Let’s recall DSA signature.
 
 - There are public parameters (p, q, g), where p and q are large primes; p−1 is a multiple of q
     and g is a group generator. Also, H(·) is a cryptographic hash function.
-- Key generationKeyGen generates secret keyx
+- Key generationKeyGen generates secret key x
 
 ```
-←Z∗q, and public keyy ← gxmodp, and
+←Z∗q, and public key y ← gx mod p, and
 outputs (x, y).
 ```
 - SigningSign(m):
-    - generate a random noncek 
+    - generate a random nonce k 
 
 ``` 
 k ← Z_q^*. 
@@ -27,28 +27,28 @@ output pair (r, s)
 ```
 
 What is the vulnerability?
-It is possible that the range over which the random noncekis selected is very small. If an
+It is possible that the range over which the random nonce k is selected is very small. If an
 attacker wants to retrieve the private key from the given signature (r, s) and the messagem, he
 can exploit the fact that noncekis generated over a small range.
 
 How does the attack work?
 The attacker has access to the messagemand (r, s) pair. He can first try to recover kby
-brute-force the range ofk(assuming it is small). Then withkto recover the secrete keyxfroms.
+brute-force the range ofk(assuming it is small). Then with k to recover the secret key x from s.
 
 ## Task
 
-Assume instead of using the large set Z∗q, random noncekis selected randomly from a small set
-{ 1 , 2 ,... , 216 − 1 }. You are provided with aninput.jsonfile containing:
+Assume instead of using the large set Z∗q, random nonce k is selected randomly from a small set
+{ 1 , 2 ,... , 216 − 1 }. You are provided with an input.json file containing:
 
-- Public parameters: (p, q, g), where|q|= 160,|p|= 1024; for simplicity we instantiateH(·)
+- Public parameters: (p, q, g), where|q|= 160,|p|= 1024; for simplicity we instantiate H(·)
     with SHA-1.
-- Public keyy:=gxmodp
-- Messagemand its signature pair (r, s) signed withxandk
+- Public key y: = gx mod p
+- Message m and its signature pair (r, s) signed with x and k
 - Hashh= SHA-1(m) in hexadecimal representation
-You are expected to computek and produce the private keyx that was used to sign the
-messagem. There is no restriction on the language nor external cryptographic library (e.g., Crypto,
-OpenSSL) used for your attack. Note that we run key generation algorithm independently for each
-student.
+
+
+This algorithm computes k and produces the private key x that was used to sign the
+message m. 
 
 
 ## References
