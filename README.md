@@ -2,7 +2,7 @@
 
 Let’s recall DSA signature.
 
-- There are public parameters (p, q, g), wherepandqare large primes; p−1 is a multiple of q
+- There are public parameters (p, q, g), where p and q are large primes; p−1 is a multiple of q
     and g is a group generator. Also, H(·) is a cryptographic hash function.
 - Key generationKeyGen generates secret keyx
 
